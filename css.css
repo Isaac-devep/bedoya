@@ -1,0 +1,119 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fad7df;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .container-letter {
+    position: relative;
+    width: 400px;
+    height: 200px;
+  }
+  
+  .cover {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-top: 100px solid #fe3334;
+    border-bottom: 100px solid transparent;
+    transition: transform 0.75s ease-in-out;
+    transform-origin: top;
+    z-index: 2;
+  }
+  
+  .paper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    padding: 20px;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.75s ease-in-out, opacity 0.75s ease-in-out;
+  }
+  
+  .paper p {
+    position: relative;
+    transform: translateY(0); /* Posición inicial */
+    opacity: 0; /* Inicialmente oculto */
+    transition: transform 0.75s ease-in-out, opacity 0.75s ease-in-out;
+    line-height: 1.6;
+  }
+  
+  .letter {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 200px solid #ff989e;
+    border-right: 200px solid #ff989e;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid #ff858a;
+    z-index: 0;
+  }
+  
+  .options {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .options button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fe3334;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .options button:hover {
+    background-color: #ff858a;
+  }
+  
+  /* Clases para animación */
+  .open-cover {
+    transform: rotateX(180deg);
+  }
+  
+  .open-paper {
+    transform: translateY(-120px);
+    opacity: 1;
+  }
+  
+  .open-paper p {
+    transform: translateY(-20px); /* Sube el texto */
+    opacity: 1; /* Aparece */
+  }
+  
+  .close-paper {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  
+  .close-paper p {
+    transform: translateY(20px); /* Baja el texto */
+    opacity: 0; /* Desaparece */
+  }
+  
